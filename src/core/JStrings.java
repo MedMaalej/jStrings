@@ -34,11 +34,7 @@ public class JStrings {
 
 	// Reversing a string
 	public String rts() {
-		String reversed = "";
-		for (int i = str.length() - 1; i >= 1; i--) {
-			reversed += str.charAt(i);
-		}
-		return reversed;
+		return new StringBuilder(str).reverse().toString();
 	}
 
 	// Capitalizing a String
@@ -77,13 +73,12 @@ public class JStrings {
 
 	// Counting string latin vowels
 	public int vowelsCount() {
+		String temp = str.toLowerCase();
 		int vowelsCounter = 0;
-		for (int i = 0; i < str.length(); i++) {
-			if (str.charAt(i) == 'a' || str.charAt(i) == 'A' || str.charAt(i) == 'e' || str.charAt(i) == 'E'
-					|| str.charAt(i) == 'i' || str.charAt(i) == 'I' || str.charAt(i) == 'o' || str.charAt(i) == 'O'
-					|| str.charAt(i) == 'u' || str.charAt(i) == 'U' || str.charAt(i) == 'y' || str.charAt(i) == 'Y') {
-				vowelsCounter++;
-			}
+		for(char ch : temp.toCharArray()){
+		    if("aeiou".indexOf(ch) != -1){
+		        vowelsCounter++;
+		    }
 		}
 		return vowelsCounter;
 	}
